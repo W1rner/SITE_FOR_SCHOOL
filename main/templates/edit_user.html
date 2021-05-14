@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel = "stylesheet" href = "/static/css/edit_user.css">
+		<link rel = "stylesheet" href = "/static/css/menu.css">
+        <link rel="icon" href="/static/img/logo.ico">
+		<title>SimpleVotings | Edit Profile</title>
+	</head>
+	<body>
+		<header>
+		    {% include 'menu.html' %}
+		</header>
+		<main>
+            <h2>Редактирование профиля</h2>
+            <div class = "user_edit">
+                <form class = "form_edit" name="test" method="GET" action="/user/edit_profile/">
+                    <h2><b>Данные пользователя</b><br> </h2>
+                    <p><b>Имя:</b><br>
+                        <input type="text" name="firstname" size="40" placeholder="{{firstname}}">
+                    </p>
+                    <p><b>Фамилия:</b><br>
+                        <input type="text" name="lastname" size="40" placeholder="{{lastname}}">
+                    </p>
+                    <p><b>Email:</b><br>
+                        <input type="email" name="email" placeholder="{{email}}" size="40">
+                    </p>
+                    <p><b>Логин:</b><br>
+                        <input type="text" name="userlogin" placeholder="{{userlogin}}" size="40">
+                    </p>
+                    <h2><b>Смена пароля</b><br> </h2>
+                    <p><b>Новый пароль:</b><br>
+                        <input type="password" name="oldpassword" size="40">
+                    </p>
+                    <p><b>Подтвердите новый пароль:</b><br>
+                        <input type="password" name="newpassword" size="40">
+                    </p>
+                      <a href="/user/"> <input type="submit" value="Сохранить"> </a>
+                        <a href="/user/"> <input type="button" value="Отмена"> </a>
+                    </p>
+                </form>
+            </div>
+		</main>
+		<footer>
+            
+		</footer>
+	</body>
+</html>

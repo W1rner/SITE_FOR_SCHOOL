@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "/static/css/history.css">
+    <link rel = "stylesheet" href = "/static/css/menu.css">
+    <link rel="icon" href="/static/img/logo.ico">
+    <title>SimpleVotings | History</title>
+</head>
+<body>
+    
+    <header>
+
+        {% include 'menu.html' %}
+
+    </header>
+
+    <main>
+       
+        <div class="voiteList">
+            
+            <h3 class="voiteTag">История:</h3>
+
+            {% for vote in history %}
+            <a href="/votings/vote?id={{vote.id}}&view=percent">
+                <div class="voite">
+                    
+                    <div class="headVoite">
+                        
+
+                        <p>{{vote.vote_name}}</p>
+
+                    </div>
+
+                </div>  
+            </a>
+            {% endfor %}
+
+
+        </div>  
+        
+    </main>
+
+    <footer> 
+
+
+
+    </footer>
+</body>
+</html>

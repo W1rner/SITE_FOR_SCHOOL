@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SimpleVotings | C&S</title>
+    <link rel="stylesheet" href="/static/css/menu.css">
+    <link rel="stylesheet" href="/static/css/complaints.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  </head>
+  <body>
+  <header>
+    {% include 'menu.html' %}
+  </header>
+  <main>
+    <h1>Жалобы & предложения</h1>
+    <div class="write-complaint">
+      <a href="/complaints_&_suggestions/create">Написать жалобу/предложение</a>
+    </div>
+      <div class="complcontainer">
+        {% for el in complaints %}
+          <section class="ArticleCopy">
+            <p>{{el.author}}</p>
+            <blockquote>
+              <p> {{ el.quote }}</p>
+            </blockquote>
+          </section>
+        {% endfor %}
+      </div>
+  </main>
+  </body>
+</html>

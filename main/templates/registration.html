@@ -1,0 +1,34 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Simple Votings</title>
+        <link href="/static/css/registration.css" rel="stylesheet">
+        <link rel="icon" href="/static/img/logo.ico">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    </head>
+    <body>
+        <header>
+            <h1 class="text-center text-white"> SimpleVotings | Registration</h1>
+		</header>
+
+        <form method="POST" action="/registration/">
+          {% csrf_token %}
+          <div class="reg_window">
+            <h1> Регистрация </h1>
+            {% for field in regform.visible_fields %}
+            <p>{{field}} </p>
+            {% endfor %}
+            {% if messages %}
+            {% for message in messages %}
+            <p class="text-white"> {{ message }} </p>
+            {% endfor %}
+            {% endif %}
+            <input type="submit" class="btn btn-primary" value="Зарегистрироваться">
+            <br>
+            <a href="/" class="text-white"> Вернуться на главную </a>
+          </div>
+        </form>
+
+    </body>
+</html>

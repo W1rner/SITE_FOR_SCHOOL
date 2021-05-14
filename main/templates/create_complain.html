@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>SimpleVotings | Create C&S</title>
+    <link rel="stylesheet" href="/static/css/problems.css">
+    <link rel="stylesheet" href="/static/css/menu.css">
+</head>
+<body>
+    <header>
+      {% include 'menu.html' %}
+    </header>
+    <main>
+        <h2>Problems</h2>
+        <div class = "problem_form">
+                <form class = "form_edit" name="test" method="post" action="/complaints_&_suggestions/create">
+                  {% csrf_token %}
+                    <label>Предложение/Жалоба:</label>
+                    
+                    {% for field in complainform.visible_fields %}
+                    <p>{{field}} </p>
+                    {% endfor %}
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p class="text-white"> {{ message }} </p>
+                    {% endfor %}
+                    {% endif %}
+
+                    <p>
+                        <input type="submit" value="Сохранить">
+                    </p>
+                </form>
+            </div>
+    </main>
+    <footer></footer>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>SimpleVotings | C&S</title>
+    <link rel="stylesheet" href="/static/css/menu.css">
+    <link rel="stylesheet" href="/static/css/vote_users.css">
+  </head>
+  <body>
+  <header>
+    {% include 'menu.html' %}
+  </header>
+  <main>
+    <h1>Участники голосования <a href="/votings/vote?id={{vote_id}}"> {{vote_name}} </a> </h1>
+      <div class="container">
+        {% for user in users %}
+          <div class="single-user">
+            <div class="user-icon">
+
+            </div>
+            <div class="user-name">
+                <a href="/user/?id={{user.user_id}}"> {{user.name}} </a>
+            </div>
+          </div>
+        {% endfor %}
+      </div>
+  </main>
+  </body>
+</html>

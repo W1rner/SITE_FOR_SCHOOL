@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+
+body{
+    background-color: rgba(40, 40, 40, 1);
+    padding: 10px;
+}
+header{
+    width: 100%;
+    height: 5%;
+}
+.theme{
+    background-color: rgba(20, 20, 20, 1);
+    border: 1px solid rgba(20, 20, 20, 1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    height: 50px;
+    width: 50px;
+    float: left;
+    border-radius: 5px 5px;
+}
+.theme:hover{
+    background-color: rgba(0, 0, 0, 1);
+    transition: 0.2s;
+}
+.reg{
+    background-color: rgba(20, 20, 20, 1);
+    border: 1px solid rgba(20, 20, 20, 1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    color: dodgerblue;
+    height: 50px;
+    width: auto;
+    float: right;
+    vertical-align: middle;
+    border-radius: 10px 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+    transition: 0.2s;
+}
+.reg:hover{
+    background-color: rgba(0, 0, 0, 1);
+    transition: 0.2s;
+}
+.navs_el{
+    padding: 10px;
+    background-color: rgba(40, 40, 40, 1);
+    color: dodgerblue;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    font-size: 300%;
+    text-align: center;
+    display: block;
+    width: 30%;
+    margin: auto;
+    margin-top: 50px;
+    transition: 0.2s;
+}
+.navs_el:hover{
+    background-color: rgba(30, 30, 30, 1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    transition: 0.2s;
+}
+.nav-box{
+    margin-top: 100px;
+    width: 100%;
+    height: 60%;
+}
+.reg_window{
+    font-size: 150%;
+    color: white;
+    font-family: 'Lato', sans-serif;
+    padding: 50px;
+    background-color: rgba(30, 30, 30, 1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    border-radius: 20px 20px;
+    margin: auto;
+    margin-top: 10%;
+    width: 30%;
+    height: 80%;
+}
+.inputs_windows{
+    font-size: 150%;
+    background-color: rgba(20, 20, 20, 1);
+    width: 100%;
+    color: white;
+    border-style: solid;
+    border-radius: 10px 10px;
+}
+.reg_btn{
+    background-color: rgba(20, 20, 20, 1);
+    border: 1px solid rgba(20, 20, 20, 1);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+    color: dodgerblue;
+    display: block;
+    margin-top: 25px;
+    height: 60px;
+    width: 100%;
+    vertical-align: middle;
+    border-radius: 10px 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    text-decoration: none;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+    font-size: 50px;
+    transition: 0.2s;
+}
+.reg_btn:hover{
+    background-color: rgba(0, 0, 0, 1);
+    transition: 0.2s;
+}
+@font-face{
+    font-family: 'Lato', sans-serif;
+    src: url(DS-UncialFunnyHand-Medium.ttf);
+}

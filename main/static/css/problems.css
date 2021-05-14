@@ -1,0 +1,55 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    font-family: 'Noto Sans JP', sans-serif;
+}
+header{
+    width: 100%;
+    height: 6%;
+    border-bottom: 1px solid black;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+.main-area{
+    width: 550px;
+    height: 144px;
+    resize: none;
+    padding: 10px;
+}
+h2{
+    padding: 1%;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: calc(100vh - 8%);
+}
+span{
+    margin-left: 1%;
+    font-size: 13px;
+}
+
+footer{
+    width: 100%;
+    height: 8%;
+    border-top: 1px solid black;
+    box-shadow: 10px 0 0 rgba(0,0,0,0.5);
+}
+
+.problem_form{
+    width: 45%;
+    padding: 10%;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+label{
+    display: block;
+}

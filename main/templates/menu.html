@@ -1,0 +1,31 @@
+<a href="/"> <div class = "logo"></div> </a>
+<div class = "menu">
+    <ul class = "menu_list">
+            <li class = "li_menu"><a href="/">Главная</a></li>
+            <li class = "li_menu"><a href="/votings/">Голосования</a></li>
+            <li class = "li_menu"><a href="/complaints_&_suggestions/">C&S</a></li>
+        </ul>
+</div>
+<div class = "user">
+    <div class = "userIcon popup" onclick="myFunction()">
+        <ul class="popuptext" id="myPopup">
+            {% if user_logged_in %}
+            <li> <a href="/user/"> {{username}} </a> </li>
+            <li> <a href="/user/create_voting">Создать голосование</a> </li>
+            <li> <a href="/user/history">История</a> </li>
+            <li> <a href="/logout/">Выйти из системы</a> </li>
+            {% else %}
+            <li> <a href="/login/"> Login </a> </li>
+            <li> <a href="/registration/"> Создать аккаунт </a> </li>
+            {% endif %}
+        </ul>
+    </div>
+</div>
+
+<script>
+        // When the user clicks on div, open the popup
+        function myFunction() {
+          var popup = document.getElementById("myPopup");
+          popup.classList.toggle("show");
+        }
+</script>

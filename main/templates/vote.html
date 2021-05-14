@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel = "stylesheet" href = "/static/css/vote.css">
+    <link rel = "stylesheet" href = "/static/css/menu.css">
+    <link rel="icon" href="/static/img/logo.ico">
+    <title>SimpleVotings | {{name}}</title>
+</head>
+<body>
+
+    <header>
+
+        {% include 'menu.html' %}
+
+    </header>
+
+    <main>
+
+        <div class="vote">
+
+            <div class="headVote">
+
+                <h1>{{name}}</h1>
+                <span>{{author}}</span>
+                <p id="votes_quantity">{{all_votes_quantity}} votes</p>
+              <br>
+              <a href="/votings/vote/participants?vote_id={{vote_id}}&vote_name={{name}}"> Участники голосования </a>
+
+            </div>
+
+            <div class="textVote">
+
+                <p> {{about}} </p>
+
+            </div>
+
+            <div class="startVote" id="startVote">
+                {% for var in vars %}
+              {% if not already_voted %}
+              <a href="/votings/vote/user_voted?vote_id={{vote_id}}&var_text={{var.text}}" style="text-decoration: none; color: black">
+              {% endif %}
+                {% if var.text == green_var %}
+                <div class="golos" id="golos golos1" onload="make_div_green()">
+                {% elif not already_voted %}
+                <div class="golos" id="golos golos1">
+                {% else %}
+                  <div class="golos" id="golos golos1" onload="fill_div()">
+                  {% endif %}
+
+                    <div class="font">
+
+                        <span class="textGolos">{{var.text}}</span>
+                        <span class="percent">{{var.val}}</span>
+
+                    </div>
+
+                </div>
+              {% if not already_voted %}
+              </a>
+              {% endif %}
+                {% endfor %}
+            </div>
+            {% if values_type == 'percent' %}
+              <a style="text-decoration: none; color: black" href="/votings/vote/?id={{vote_id}}&view=nums"> <button> Отображение: проценты </button> </a>
+            {% elif values_type == 'nums' %}
+              <a style="text-decoration: none; color: black" href="/votings/vote/?id={{vote_id}}&view=percent"> <button> Отображение: числа </button> </a>
+            {% endif %}
+        </div>
+
+    </main>
+
+    <footer>
+
+
+
+    </footer>
+
+   <script>
+     let all_div = startVote.querySelectorAll('.golos');
+     function make_div_green(div){
+
+
+            let num = 0;
+            setInterval(function(let) {
+                let percent = 0
+                if(div.querySelector('.percent').innerHTML[div.querySelector('.percent').innerHTML.length - 1] == "%"){
+                    percent = div.querySelector('.percent').innerHTML.slice(0, -1);
+                }
+                else{
+                    percent = parseInt(parseFloat(div.querySelector('.percent').innerHTML) / votes_quantity.innerHTML.split(' ')[0] * 100)
+                }
+
+                if(num < percent){
+                    num++;
+                }
+
+                div.querySelector('.font').style.background = 'linear-gradient(to right, rgba(4, 255, 58, 0.8) ' + num + '%, rgba(0,0,0,0) ' + num + '%)';
+            }, 10);
+
+        }
+     function fill_div(div){
+
+
+            let num = 0;
+            setInterval(function(let) {
+                let percent = 0
+                if(div.querySelector('.percent').innerHTML[div.querySelector('.percent').innerHTML.length - 1] == "%"){
+                    percent = div.querySelector('.percent').innerHTML.slice(0, -1);
+                }
+                else{
+                    percent = parseInt(parseFloat(div.querySelector('.percent').innerHTML) / votes_quantity.innerHTML.split(' ')[0] * 100)
+                }
+
+                if(num < percent){
+                    num++;
+                }
+
+                div.querySelector('.font').style.background = 'linear-gradient(to right, #cccbcb ' + num + '%, rgba(0,0,0,0) ' + num + '%)';
+            }, 10);
+
+        }
+        for (let div of all_div) {
+            if(div.getAttribute('onload') == 'make_div_green()'){
+                div.onclick = make_div_green(div)
+            }
+            if(div.getAttribute('onload') == 'fill_div()'){
+                div.onclick = fill_div(div)
+            }
+        }
+   </script>
+
+</body>
+</html>

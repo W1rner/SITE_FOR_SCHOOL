@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8">
+		<link rel = "stylesheet" href = "/static/css/add_votings.css">
+        <link rel="icon" href="/static/img/logo.ico">
+		<link rel = "stylesheet" href = "/static/css/menu.css">
+<!--        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">-->
+		<title>SimpleVotings | Create Voting</title>
+	</head>
+	<body>
+		<header>
+		    {% include 'menu.html' %}
+		</header>
+		<main>
+            <h2>Создание голосований</h2>
+            <div class = "main-form">
+                <form class="" name="test" method="POST" action="/user/create_voting">
+                    {% csrf_token %}
+                    <div id="reg_window" class="reg_window">
+                        {% for field in createvoteform.visible_fields %}
+                        {{field}}
+                        {% endfor %}
+                    </div>
+                    <div id="add" class="add">Добавить вариант</div>
+                    {% if messages %}
+                    {% for message in messages %}
+                    <p> {{ message }} </p>
+                    {% endfor %}
+                    {% endif %}
+                    <input type="submit" value="Создать голосование" class="createbtn">
+                </form>
+            </div>
+		</main>
+		<footer>
+		</footer>
+        <script>
+            'use strict';
+            
+            document.querySelector('#add').onclick = function(){
+                let input = document.getElementById('variant');
+                let cln = input.cloneNode(true);
+                cln.value = ''
+                document.querySelector('#reg_window').appendChild(cln);
+                delete_field();
+            }
+            document.querySelector('#add').onclick()
+            delete_field();
+            function delete_field (){
+                let vars = document.body.querySelectorAll('#variant');
+                for(let el = 0; el < vars.length ; el++){
+                    vars[el].ondblclick = function(){
+                        if(el != 0 && el != 1 || vars.length > 2){
+                            vars[el].remove();
+                            delete_field()
+                        }
+                    }
+                }
+            }
+        </script>
+	</body>
+</html>
